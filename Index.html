@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en-us">
+  <head>
     <meta charset="UTF-8">
     <title>Index</title>
-</head>
-<body>
+  </head>
+  <body>
+    <script type="text/javascript">
 
-</body>
+alert('You have 10 guesses.  Guess 1-10');
+ 
+ var answer = 8;
+ var guess = prompt("What's your guess?");
+ 
+ for (i=0; i<10; i++) {
+     if (answer == guess) {
+         alert("You guessed correctly");
+         break;
+     }else{
+         guess=prompt("Please Try Again");
+     }
+ }      
+    </script>
+
+  </body>
 </html>
-    
