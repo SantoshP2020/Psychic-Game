@@ -2,25 +2,96 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Events!</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
   </head>
   <body>
-    <script type="text/javascript">
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <div class="jumbotron">
+            <h1>The Psychic Game</h1>
+            <h2>Guess what letter I am thinking of</h2>
+            <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
 
-alert('You have 10 guesses.  Guess 1-10');
- 
- var answer = 8;
- var guess = prompt("What's your guess?");
- 
- for (i=0; i<10; i++) {
-     if (answer == guess) {
-         alert("You guessed correctly");
-         break;
-     }else{
-         guess=prompt("Please Try Again");
-     }
- }      
+    <!-- We have to put this at the end of our document to ensure the user-text
+         span exists when we try to access it. -->
+    <script type="text/javascript">
+      // Let's start by grabbing a reference to the <span> below.
+      var userText = document.getElementById("user-text");
+   
+      var alphabetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+      var randomNum = Math.floor(Math.random() * 8);
+      
+      var computerChoice = alphabetArray[randomNum];
+
+      var win = 0
+
+      var loss = 0
+      // Next, we give JavaScript a function to execute when onkeyup event fires.
+        document.onkeyup = function(event) {
+        userText.textContent = event.key;
+        
+        if (computerChoice===event.key) {
+        win++ 
+        //win=win+1
+} else {
+    loss++ 
+}
+
+
+      };
+      
+      //Arr
+
+    
+
+    console.log(randomNum)
+
+    
+
     </script>
+
+//
+1. Computer chooses a random alphabet (a - z).
+
+2. User chooses any letter on keyboard.
+
+3. We determine if the user wins or not.
+
+   * If user picks correct letter than that of computer picked up then user wins and number of wins increases by 1 and the number of counts remaining goes down by 1.
+
+   * If user picks incorrect letter than that of computer picked up then user looses and the number of losses then user loses.
+
+   * If user picks scissors and if computer picks rock then user loses.
+
+   * If user picks scissors and if computer picks paper then user wins.
+
+   * If user picks paper and if computer picks rock then user wins.
+
+   * If user picks paper and if computer picks scissors then user loses.
+
+   * If user picks the same as computer then they tie.
+
+4. We then add to their score.
+
+   * If user wins then we add one to their wins.
+    
+   * If user loses then we add one to their losses.
+    
+   * If user ties then we add one to their ties.
+
+5. The user then presses r, p, or s to play again.
+
+
 
   </body>
 </html>
